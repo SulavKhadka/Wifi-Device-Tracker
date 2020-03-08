@@ -1,7 +1,6 @@
 import os
 import csv
 import sqlite3
-from pprint import pprint
 from collections import defaultdict
 
 class Database(object):
@@ -25,7 +24,7 @@ class Database(object):
                 table_headers[line["table_name"]] += f', {line["column_name"]} {line["column_type"]}'
 
             previous_table_name = line["table_name"]
-            
+
         return table_headers
     
     def make_db(self, table_info=None):
