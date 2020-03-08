@@ -9,10 +9,11 @@ class Database(object):
     def __init__(self, db_path):
         # Logging setup
         logger = logging.getLogger(__name__)
-        logger.setLevel(logging.DEBUG)
-        file_handler = logging.FileHandler(f"{__name__}.log", mode='a')
+        file_name = __file__.split(".")[0]
+        file_handler = logging.FileHandler(f"{file_name}.log", mode='a')
         formatter = logging.Formatter('%(asctime)s :: %(filename)s :: %(levelname)s :: %(message)s')
         file_handler.setFormatter(formatter)
+        file_handler.setLevel(logging.DEBUG)
         logger.addHandler(file_handler)
 
         consoleHandler = logging.StreamHandler(sys.stdout)

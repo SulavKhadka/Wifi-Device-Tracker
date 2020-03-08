@@ -36,6 +36,7 @@ def log_devices(db, commit_frequency=10, scan_time_interval=30):
     
     db.connect(create=True, db_schema_path="db_schema.csv")
     cursor = db.conn.cursor()
+    total_logs = 0
     current_log_frequency = 0
 
     logger.info("Starting network scan...")
@@ -64,10 +65,14 @@ def log_devices(db, commit_frequency=10, scan_time_interval=30):
                 raise Exception(e)
         
         if current_log_frequency == commit_frequency:
+            logger.info(f"Committing {current_log_frequency} records.")
             db.conn.commit()
+            current_log_frequency = -1
         current_log_frequency += 1
+        total_logs += 1
 
         scan_end_time = time.time()
+        logger.info(f"Record #{total_logs}")
         logger.info(f"Scan time: {scan_end_time - scan_start_time}")
 
         # Sleep mechanism to make sure the device scans happen at the scan_time_interval points
@@ -79,6 +84,7 @@ def terminate_handler(self, signum, frame):
     # Graceful exit handling logic
     self.logger.info("Recieved kill signal, Closing database.")
     print("\nRecieved kill signal, Closing database.")
+    self.conn.commit()
     self.conn.close()
     sys.exit(0)
 
@@ -88,7 +94,8 @@ if __name__ == "__main__":
     # Logging setup
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
-    file_handler = logging.FileHandler(f"{__name__}.log", mode='a')
+    file_name = __file__.split(".")[0]
+    file_handler = logging.FileHandler(f"{file_name}.log", mode='a')
     formatter = logging.Formatter('%(asctime)s :: %(filename)s :: %(levelname)s :: %(message)s')
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
@@ -100,4 +107,4 @@ if __name__ == "__main__":
 
     db = db_creator.Database(db_path="network_device_logs.db")
     signal.signal(signal.SIGINT, partial(terminate_handler, db)) # Graceful exit handling call
-    log_devices(db, commit_frequency=2, scan_time_interval=20)
+    log_devices(db, commit_frequency=5, scan_time_interval=10)
