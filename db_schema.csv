@@ -1,0 +1,9 @@
+table_name,column_name,column_type
+devices, name, text
+devices, arpIdentifiedName, text
+devices, ipAddress, text
+devices, macAddress, text
+devices, timestamp, text
+devicelogs, id, integer auto_increment primary key
+devicelogs, deviceId, integer
+devicelogs, timestamp, text
