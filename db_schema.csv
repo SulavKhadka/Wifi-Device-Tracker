@@ -1,4 +1,5 @@
 table_name,column_name,column_type
+devices, id, integer auto_increment primary key
 devices, name, text
 devices, arpIdentifiedName, text
 devices, ipAddress, text

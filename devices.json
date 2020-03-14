@@ -1,0 +1,129 @@
+{
+    "device09f64e3f-b97b-4ddb-a082-ad7453310dc3": {
+        "arpIdentifiedName": "linksys00990.verizon.net",
+        "ipAddress": "10.254.1.1",
+        "macAddress": "c4:41:1e:f:fc:db",
+        "name": "device09f64e3f-b97b-4ddb-a082-ad7453310dc3"
+    },
+    "device2279ba31-199d-44b1-93e0-24ff561494fb": {
+        "arpIdentifiedName": "?",
+        "ipAddress": "224.0.0.251",
+        "macAddress": "1:0:5e:0:0:fb",
+        "name": "device2279ba31-199d-44b1-93e0-24ff561494fb"
+    },
+    "device2e2c166b-38b3-4c45-893e-d6b0c57d4676": {
+        "arpIdentifiedName": "?",
+        "ipAddress": "10.254.1.255",
+        "macAddress": "ff:ff:ff:ff:ff:ff",
+        "name": "device2e2c166b-38b3-4c45-893e-d6b0c57d4676"
+    },
+    "device8fe82958-8ac2-4da9-8353-ed50b0c75def": {
+        "arpIdentifiedName": "chromecast-ultra.verizon.net",
+        "ipAddress": "10.254.1.119",
+        "macAddress": "1c:f2:9a:77:37:fb",
+        "name": "device8fe82958-8ac2-4da9-8353-ed50b0c75def"
+    },
+    "deviceb9f093e7-c30a-437d-beb9-c00b6dd21b78": {
+        "arpIdentifiedName": "just-an-iphone.verizon.net",
+        "ipAddress": "10.254.1.152",
+        "macAddress": "8c:86:1e:32:86:52",
+        "name": "deviceb9f093e7-c30a-437d-beb9-c00b6dd21b78"
+    },
+    "devicebcd30aec-8755-45dc-a55c-6a748a29c073": {
+        "arpIdentifiedName": "sulavs-mbp-2.verizon.net",
+        "ipAddress": "10.254.1.164",
+        "macAddress": "18:65:90:db:1:41",
+        "name": "devicebcd30aec-8755-45dc-a55c-6a748a29c073"
+    },
+    "devicee48ffdaa-4521-46bc-a727-121e9322bfb2": {
+        "arpIdentifiedName": "?",
+        "ipAddress": "239.255.255.250",
+        "macAddress": "1:0:5e:7f:ff:fa",
+        "name": "devicee48ffdaa-4521-46bc-a727-121e9322bfb2"
+    }
+}{
+    "device075a3362-4d60-45b0-9400-816c22f4e61f": {
+        "arpIdentifiedName": "?",
+        "ipAddress": "10.254.1.255",
+        "macAddress": "ff:ff:ff:ff:ff:ff",
+        "name": "device075a3362-4d60-45b0-9400-816c22f4e61f"
+    },
+    "device09f64e3f-b97b-4ddb-a082-ad7453310dc3": {
+        "arpIdentifiedName": "linksys00990.verizon.net",
+        "ipAddress": "10.254.1.1",
+        "macAddress": "c4:41:1e:f:fc:db",
+        "name": "device09f64e3f-b97b-4ddb-a082-ad7453310dc3"
+    },
+    "device10f24fdd-7104-4ccc-a391-3e2fcf925ef3": {
+        "arpIdentifiedName": "sulavs-mbp-2.verizon.net",
+        "ipAddress": "10.254.1.164",
+        "macAddress": "18:65:90:db:1:41",
+        "name": "device10f24fdd-7104-4ccc-a391-3e2fcf925ef3"
+    },
+    "device2279ba31-199d-44b1-93e0-24ff561494fb": {
+        "arpIdentifiedName": "?",
+        "ipAddress": "224.0.0.251",
+        "macAddress": "1:0:5e:0:0:fb",
+        "name": "device2279ba31-199d-44b1-93e0-24ff561494fb"
+    },
+    "device2e2c166b-38b3-4c45-893e-d6b0c57d4676": {
+        "arpIdentifiedName": "?",
+        "ipAddress": "10.254.1.255",
+        "macAddress": "ff:ff:ff:ff:ff:ff",
+        "name": "device2e2c166b-38b3-4c45-893e-d6b0c57d4676"
+    },
+    "device8fe82958-8ac2-4da9-8353-ed50b0c75def": {
+        "arpIdentifiedName": "chromecast-ultra.verizon.net",
+        "ipAddress": "10.254.1.119",
+        "macAddress": "1c:f2:9a:77:37:fb",
+        "name": "device8fe82958-8ac2-4da9-8353-ed50b0c75def"
+    },
+    "deviceb5e11526-ddcb-4064-89ec-24b92fe30f91": {
+        "arpIdentifiedName": "just-an-iphone.verizon.net",
+        "ipAddress": "10.254.1.152",
+        "macAddress": "8c:86:1e:32:86:52",
+        "name": "deviceb5e11526-ddcb-4064-89ec-24b92fe30f91"
+    },
+    "deviceb78064e6-943d-4e65-9f2d-18107900a9d3": {
+        "arpIdentifiedName": "linksys00990.verizon.net",
+        "ipAddress": "10.254.1.1",
+        "macAddress": "c4:41:1e:f:fc:db",
+        "name": "deviceb78064e6-943d-4e65-9f2d-18107900a9d3"
+    },
+    "deviceb901c337-91b9-4dcb-b03b-56190101fc9c": {
+        "arpIdentifiedName": "chromecast-ultra.verizon.net",
+        "ipAddress": "10.254.1.119",
+        "macAddress": "1c:f2:9a:77:37:fb",
+        "name": "deviceb901c337-91b9-4dcb-b03b-56190101fc9c"
+    },
+    "deviceb9f093e7-c30a-437d-beb9-c00b6dd21b78": {
+        "arpIdentifiedName": "just-an-iphone.verizon.net",
+        "ipAddress": "10.254.1.152",
+        "macAddress": "8c:86:1e:32:86:52",
+        "name": "deviceb9f093e7-c30a-437d-beb9-c00b6dd21b78"
+    },
+    "devicebcd30aec-8755-45dc-a55c-6a748a29c073": {
+        "arpIdentifiedName": "sulavs-mbp-2.verizon.net",
+        "ipAddress": "10.254.1.164",
+        "macAddress": "18:65:90:db:1:41",
+        "name": "devicebcd30aec-8755-45dc-a55c-6a748a29c073"
+    },
+    "devicede98dbb3-242a-4fc1-8314-c3873aca993d": {
+        "arpIdentifiedName": "?",
+        "ipAddress": "224.0.0.251",
+        "macAddress": "1:0:5e:0:0:fb",
+        "name": "devicede98dbb3-242a-4fc1-8314-c3873aca993d"
+    },
+    "devicee48ffdaa-4521-46bc-a727-121e9322bfb2": {
+        "arpIdentifiedName": "?",
+        "ipAddress": "239.255.255.250",
+        "macAddress": "1:0:5e:7f:ff:fa",
+        "name": "devicee48ffdaa-4521-46bc-a727-121e9322bfb2"
+    },
+    "devicefe354098-d59b-4a69-9c57-8e21e99f8c0c": {
+        "arpIdentifiedName": "?",
+        "ipAddress": "239.255.255.250",
+        "macAddress": "1:0:5e:7f:ff:fa",
+        "name": "devicefe354098-d59b-4a69-9c57-8e21e99f8c0c"
+    }
+}
