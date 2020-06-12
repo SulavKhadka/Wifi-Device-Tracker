@@ -67,12 +67,13 @@ class DeviceTracker():
     def get_devices_on_network(self):
         nmap = subprocess.Popen(['arp', '-a'], stdout=subprocess.PIPE)
         ipout = nmap.communicate()[0].decode("utf-8")
-        
+        self.logger.debug(f"nmap output (all): {ipout}")
+
         devices = []
         for i in ipout.strip().split("\n"):
             add_device = False
             raw_list = i.split(" ")
-
+            self.logger.debug(f"nmap output (single device): {raw_list}")
             # Correlating the device to the db device ID.
             name = self.all_devices.get('device_correlation').get(raw_list[1][1:-1])
             if name is None:
@@ -120,7 +121,7 @@ class DeviceTracker():
 
     def add_device_to_db(self, device):
         device_name = device.get('AssignedDeviceName')
-        query_string = f'''INSERT INTO devices(name,arpIdentifiedName,ipAddress,macAddress) 
+        query_string = f'''INSERT INTO devices (name, arpIdentifiedName, ipAddress, macAddress) 
                             VALUES (?,?,?,?);'''
         values = list(device.values())
         self.logger.debug(f"Insert values: {values}")
@@ -133,13 +134,18 @@ class DeviceTracker():
 
 
     def get_all_devices(self):
+        self.logger.debug("getting all devices...")
         query_string = f'''SELECT id,ipAddress,macAddress FROM devices '''       
         self.cursor.execute(query_string)
         devices = self.cursor.fetchall()
+        self.logger.debug(f"all devices from db: {devices}")
+
         self.all_devices['device_correlation'] = {i[1]:i[0] for i in devices}
         self.all_devices['device_correlation'] = {i[2]:i[0] for i in devices}
         self.all_devices['device_ips_set'] = set([i[1] for i in devices])
         self.all_devices['device_macs_set'] = set([i[2] for i in devices])
+
+        self.logger.debug(f"all_devices: {self.all_devices}")
 
 
     def add_new_device(self, device):
@@ -170,7 +176,7 @@ class DeviceTracker():
             for device in devices:
 
                 try:
-                    query_string = f'''INSERT INTO devicelogs(deviceId,timestamp) 
+                    query_string = f'''INSERT INTO devicelogs (deviceId,timestamp) 
                                         VALUES (?,?);'''
                     values = [device.get('AssignedDeviceName')]
                     values.append(timestamp)

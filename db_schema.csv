@@ -1,10 +1,10 @@
 table_name,column_name,column_type
-devices, id, integer auto_increment primary key
+devices, id, integer primary key
 devices, name, text
 devices, arpIdentifiedName, text
 devices, ipAddress, text
 devices, macAddress, text
 devices, timestamp, text
-devicelogs, id, integer auto_increment primary key
+devicelogs, id, integer primary key
 devicelogs, deviceId, integer
 devicelogs, timestamp, text
