@@ -28,17 +28,10 @@ class DeviceTracker():
         consoleHandler.setLevel(logging.INFO)
         consoleHandler.setFormatter(formatter)
         logger.addHandler(consoleHandler)
-
+        self.logger = logger
 
         db = db_creator.Database(db_path=db_path)
         db.connect(create=True, db_schema_path="db_schema.csv")
-
-        self.device_file = open("devices.json", "r+")
-        if self.device_file is not None:
-            self.devices = json.load(self.device_file)
-        else:
-            self.devices = {}
-        self.logger = logger
         self.db = db
         self.conn = self.db.conn
         self.cursor = None
@@ -46,12 +39,29 @@ class DeviceTracker():
             self.logger.error("Cannot get cursor. self.conn is None.")
             raise Exception("Cannot get cursor. self.conn is None.")
         self.cursor = self.conn.cursor()
+
+        self.device_file = self.load_device_file()
+
+        if self.device_file is not None:
+            self.devices = json.load(self.device_file)
+        else:
+            self.devices = {}
+
         self.all_devices = {
             "device_correlation" : {},
             "device_ips_set" : set(),
             "device_macs_set" : set()
         }
         
+
+    def load_device_file(self, new=False):
+        mode = "w+" if new else "r+"
+        try:
+            self.device_file = open("devices.json", mode)
+        except Exception as e:
+            self.logger.debug(f"Error opening file. Error:\n {e}")
+            self.logger.info("Unable to open device file. Initializing empty dict")
+            self.device_file = None
 
 
     def get_devices_on_network(self):
@@ -103,9 +113,9 @@ class DeviceTracker():
                 "ipAddress" : device.get('IpAddress'),
                 "macAddress" : device.get('MacAddress')
             }
-            self.logger.debug(f"{device_name} written to file")
+            self.logger.debug(f"{device_name} added to device dict.")
         except:
-            self.logger.exception(f"Failed to write {device_name} to file.")
+            self.logger.exception(f"Failed to write {device_name} to dict.")
 
 
     def add_device_to_db(self, device):
@@ -191,7 +201,8 @@ class DeviceTracker():
 def terminate_handler(self, signum, frame):
     # Graceful exit handling logic
     self.logger.info("Recieved kill signal, Closing database.")
-    print("\nRecieved kill signal, Closing database.")
+    if self.device_file is None:
+        self.load_device_file(new=True)
     json.dump(self.devices, self.device_file, indent = 4, sort_keys=True)
     self.device_file.close()
     self.db.conn.commit()
